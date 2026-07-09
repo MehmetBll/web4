@@ -13,6 +13,18 @@ const siteConfig = {
     ems: "https://discord.com/channels/1439035577109446870/1450887591548293213",
     lsdoj: "https://discord.com/channels/1439035577109446870/1442879305586573343",
   },
+  liveStatus: {
+    // GitHub Pages icin Node.js gerekmez. Bu degerleri doldurman yeterli.
+    // CFX kodu ornek: cfx.re/join/abc123 adresindeki "abc123".
+    fivemCfxCode: "",
+    // CFX kodu yoksa sunucu endpointi yazabilirsin: "127.0.0.1:30120".
+    // Not: Direkt IP endpointlerinde tarayici CORS engeli olabilir; CFX kodu daha sagliklidir.
+    fivemEndpoint: "",
+    fivemMaxPlayers: 128,
+    discordGuildId: "1439035577109446870",
+    // Aktif yetkili sayimi icin yetkili Discord kullanici ID'lerini buraya ekle.
+    staffUserIds: [],
+  },
 
   hero: {
     kicker: "Non-Whitelist Roleplay Sunucusu",
@@ -462,26 +474,105 @@ function renderLiveStatus(data) {
   );
 }
 
+function fivemStatusUrl() {
+  const { fivemCfxCode, fivemEndpoint } = siteConfig.liveStatus;
+
+  if (fivemCfxCode) {
+    return `https://servers-frontend.fivem.net/api/servers/single/${encodeURIComponent(fivemCfxCode)}`;
+  }
+
+  if (fivemEndpoint) {
+    return `http://${fivemEndpoint.replace(/^https?:\/\//, "")}/players.json`;
+  }
+
+  return "";
+}
+
+async function fetchFiveMStatus() {
+  const url = fivemStatusUrl();
+  if (!url) {
+    return {
+      online: false,
+      players: 0,
+      maxPlayers: siteConfig.liveStatus.fivemMaxPlayers,
+      message: "FiveM CFX kodunu app.js içindeki liveStatus alanına yaz.",
+    };
+  }
+
+  try {
+    const response = await fetch(url, { cache: "no-store" });
+    if (!response.ok) throw new Error("FiveM verisi alınamadı");
+
+    const data = await response.json();
+    if (Array.isArray(data)) {
+      return {
+        online: true,
+        players: data.length,
+        maxPlayers: siteConfig.liveStatus.fivemMaxPlayers,
+      };
+    }
+
+    const serverData = data?.Data || {};
+    return {
+      online: true,
+      players: Number(serverData.clients || 0),
+      maxPlayers: Number(serverData.sv_maxclients || siteConfig.liveStatus.fivemMaxPlayers),
+    };
+  } catch (error) {
+    return {
+      online: false,
+      players: 0,
+      maxPlayers: siteConfig.liveStatus.fivemMaxPlayers,
+      message: "FiveM verisi alınamadı. CFX kodunu veya CORS durumunu kontrol et.",
+    };
+  }
+}
+
+async function fetchDiscordStatus() {
+  const { discordGuildId, staffUserIds } = siteConfig.liveStatus;
+  if (!discordGuildId) {
+    return {
+      online: false,
+      onlineMembers: 0,
+      activeStaff: 0,
+      message: "Discord sunucu ID'sini app.js içindeki liveStatus alanına yaz.",
+    };
+  }
+
+  try {
+    const response = await fetch(
+      `https://discord.com/api/guilds/${discordGuildId}/widget.json`,
+      { cache: "no-store" },
+    );
+    if (!response.ok) throw new Error("Discord widget verisi alınamadı");
+
+    const data = await response.json();
+    const members = Array.isArray(data.members) ? data.members : [];
+    const staffIds = new Set(staffUserIds.map(String));
+    const activeStaff = staffIds.size
+      ? members.filter((member) => staffIds.has(String(member.id))).length
+      : 0;
+
+    return {
+      online: true,
+      onlineMembers: Number(data.presence_count || members.length || 0),
+      activeStaff,
+    };
+  } catch (error) {
+    return {
+      online: false,
+      onlineMembers: 0,
+      activeStaff: 0,
+      message: "Discord widget verisi alınamadı. Discord sunucusunda Widget açık olmalı.",
+    };
+  }
+}
+
 async function loadLiveStatus() {
   if (!$("[data-live-fivem]")) return;
 
-  try {
-    const response = await fetch("/api/status", { cache: "no-store" });
-    if (!response.ok) throw new Error("status api failed");
-    const data = await response.json();
-    renderLiveStatus(data);
-  } catch (error) {
-    renderLiveStatus({
-      fivem: {
-        online: false,
-        message: "Canlı veri için siteyi server.js ile çalıştır.",
-      },
-      discord: {
-        online: false,
-        message: "Canlı veri için siteyi server.js ile çalıştır.",
-      },
-    });
-  }
+  const [fivem, discord] = await Promise.all([fetchFiveMStatus(), fetchDiscordStatus()]);
+  renderLiveStatus({ fivem, discord });
 }
 
 function renderCategoryDetail() {
