@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nova Roleplay</title>
+    <meta
+      name="description"
+      content="Roleplay sunucusu için kategori mantıklı modern tanıtım sitesi."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#anasayfa" aria-label="Ana sayfa">
+        <span class="brand-mark" data-site-short>N</span>
+        <span data-site-name>Nova Roleplay</span>
+      </a>
+
+      <nav class="nav" aria-label="Site menüsü">
+        <a href="#kategoriler">Kategoriler</a>
+        <a href="#basvuru">Başvuru</a>
+        <a href="#kurallar">Kurallar</a>
+        <a href="#ekip">Ekip</a>
+      </nav>
+
+      <a class="header-action" href="#" data-discord-link>
+        <i data-lucide="message-circle" aria-hidden="true"></i>
+        Discord
+      </a>
+
+      <button class="menu-button" type="button" data-menu-button aria-label="Menüyü aç">
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <aside class="side-bar" aria-label="Sol kategori menüsü">
+      <div class="side-section">
+        <span class="side-label">Menü</span>
+        <a class="side-link" href="#anasayfa">
+          <i data-lucide="home" aria-hidden="true"></i>
+          Ana Sayfa
+        </a>
+        <a class="side-link" href="#kategoriler">
+          <i data-lucide="layout-grid" aria-hidden="true"></i>
+          Kategoriler
+        </a>
+        <a class="side-link" href="#basvuru">
+          <i data-lucide="clipboard-check" aria-hidden="true"></i>
+          Başvuru
+        </a>
+        <a class="side-link" href="#kurallar">
+          <i data-lucide="shield-check" aria-hidden="true"></i>
+          Kurallar
+        </a>
+        <a class="side-link" href="#ekip">
+          <i data-lucide="users" aria-hidden="true"></i>
+          Ekip
+        </a>
+      </div>
+
+      <div class="side-section">
+        <span class="side-label">Kategoriler</span>
+        <div class="side-categories" data-sidebar-categories></div>
+      </div>
+    </aside>
+
+    <main id="anasayfa">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow" data-hero-kicker>Non-Whitelist Roleplay Sunucusu</p>
+          <h1 id="hero-title" data-hero-title>Nova Roleplay</h1>
+          <p class="hero-copy" data-hero-copy>
+            Hikâye odaklı ekonomi, meslek, illegal ve sosyal rol kategorileriyle
+            dengeli bir RP deneyimi.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#basvuru">
+              <i data-lucide="clipboard-check" aria-hidden="true"></i>
+              Sunucuya Katıl
+            </a>
+            <a class="button secondary" href="#kategoriler">
+              <i data-lucide="layout-grid" aria-hidden="true"></i>
+              Kategoriler
+            </a>
+          </div>
+        </div>
+        <div class="server-panel" aria-label="Sunucu bilgileri">
+          <div>
+            <span>Durum</span>
+            <strong data-server-status>Aktif</strong>
+          </div>
+          <div>
+            <span>FiveM Oyuncu</span>
+            <strong data-fivem-players data-server-slot>--</strong>
+          </div>
+          <div>
+            <span>Discord Online</span>
+            <strong data-discord-online>--</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-section" aria-labelledby="intro-title">
+        <div class="section-heading">
+          <p class="eyebrow">Sunucu Mantığı</p>
+          <h2 id="intro-title">Oyuncuyu kategoriye, kategoriyi aksiyona bağlayan yapı.</h2>
+        </div>
+        <div class="intro-grid" data-highlights></div>
+      </section>
+
+      <section class="section live-section" aria-labelledby="live-title">
+        <div class="section-heading">
+          <p class="eyebrow">Canlı Durum</p>
+          <h2 id="live-title">FiveM ve Discord bağlantılı anlık bilgiler.</h2>
+        </div>
+        <div class="live-grid">
+          <article class="live-card">
+            <div class="card-icon"><i data-lucide="gamepad-2" aria-hidden="true"></i></div>
+            <span>FiveM Aktif Oyuncu</span>
+            <strong data-live-fivem>--</strong>
+            <p data-live-fivem-note>Sunucu API bağlantısı bekleniyor.</p>
+          </article>
+          <article class="live-card">
+            <div class="card-icon"><i data-lucide="message-circle" aria-hidden="true"></i></div>
+            <span>Discord Aktif Oyuncu</span>
+            <strong data-live-discord>--</strong>
+            <p data-live-discord-note>Discord widget bağlantısı bekleniyor.</p>
+          </article>
+          <article class="live-card">
+            <div class="card-icon"><i data-lucide="shield-user" aria-hidden="true"></i></div>
+            <span>Aktif Yetkili</span>
+            <strong data-live-staff>--</strong>
+            <p data-live-staff-note>Yetkili ID listesi bekleniyor.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section category-section" id="kategoriler" aria-labelledby="category-title">
+        <div class="section-heading">
+          <p class="eyebrow">Kategoriler</p>
+          <h2 id="category-title">Aradığın bölümü seç, detaylara hızlı ulaş.</h2>
+        </div>
+        <div class="category-tabs" data-category-tabs aria-label="Kategori filtreleri"></div>
+        <div class="category-grid" data-category-grid></div>
+      </section>
+
+      <section class="split-section" id="basvuru" aria-labelledby="application-title">
+        <div class="split-media" role="img" aria-label="Gece şehir yolu ve rol atmosferi"></div>
+        <div class="split-content">
+          <p class="eyebrow">Katılım</p>
+          <h2 id="application-title">Non-whitelist yapıda hızlıca role başla.</h2>
+          <p data-application-copy>
+            Sunucuya katılmak için Discord'a gir, kuralları oku ve bağlantı
+            bilgilerini takip et. Departman başvuruları ilgili kanallardan yapılır.
+          </p>
+          <ul class="step-list" data-application-steps></ul>
+          <a class="button primary" href="#" data-discord-link>
+            <i data-lucide="message-circle" aria-hidden="true"></i>
+            Discord'a Katıl
+          </a>
+        </div>
+      </section>
+
+      <section class="section rules-section" id="kurallar" aria-labelledby="rules-title">
+        <div class="section-heading">
+          <p class="eyebrow">Kurallar</p>
+          <h2 id="rules-title">Temel rol standartları.</h2>
+        </div>
+        <div class="rules-list" data-rules></div>
+      </section>
+
+      <section class="section team-section" id="ekip" aria-labelledby="team-title">
+        <div class="section-heading">
+          <p class="eyebrow">Ekip</p>
+          <h2 id="team-title">Yönetim ve destek kadrosu.</h2>
+        </div>
+        <div class="team-grid" data-team></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span data-footer-name>Nova Roleplay</span>
+      <a href="#" data-discord-link-footer>Discord'a Katıl</a>
+    </footer>
+  </body>
+</html>

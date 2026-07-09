@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kategori Detayı</title>
+    <meta
+      name="description"
+      content="Roleplay sunucusu kategori detay sayfası."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html#anasayfa" aria-label="Ana sayfa">
+        <span class="brand-mark" data-site-short>N</span>
+        <span data-site-name>Nova Roleplay</span>
+      </a>
+
+      <nav class="nav" aria-label="Site menüsü">
+        <a href="index.html#kategoriler">Kategoriler</a>
+        <a href="index.html#basvuru">Başvuru</a>
+        <a href="index.html#kurallar">Kurallar</a>
+        <a href="index.html#ekip">Ekip</a>
+      </nav>
+
+      <a class="header-action" href="#" data-discord-link>
+        <i data-lucide="message-circle" aria-hidden="true"></i>
+        Discord
+      </a>
+
+      <button class="menu-button" type="button" data-menu-button aria-label="Menüyü aç">
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <aside class="side-bar" aria-label="Sol kategori menüsü">
+      <div class="side-section">
+        <span class="side-label">Menü</span>
+        <a class="side-link" href="index.html#anasayfa">
+          <i data-lucide="home" aria-hidden="true"></i>
+          Ana Sayfa
+        </a>
+        <a class="side-link" href="index.html#kategoriler">
+          <i data-lucide="layout-grid" aria-hidden="true"></i>
+          Kategoriler
+        </a>
+        <a class="side-link" href="index.html#basvuru">
+          <i data-lucide="clipboard-check" aria-hidden="true"></i>
+          Başvuru
+        </a>
+        <a class="side-link" href="index.html#kurallar">
+          <i data-lucide="shield-check" aria-hidden="true"></i>
+          Kurallar
+        </a>
+        <a class="side-link" href="index.html#ekip">
+          <i data-lucide="users" aria-hidden="true"></i>
+          Ekip
+        </a>
+      </div>
+
+      <div class="side-section">
+        <span class="side-label">Kategoriler</span>
+        <div class="side-categories" data-sidebar-categories></div>
+      </div>
+    </aside>
+
+    <main data-category-detail>
+      <section class="detail-hero" aria-labelledby="detail-title">
+        <div class="detail-shell">
+          <a class="back-link" href="index.html#kategoriler">
+            <i data-lucide="arrow-left" aria-hidden="true"></i>
+            Kategorilere Dön
+          </a>
+
+          <div class="detail-heading">
+            <div class="detail-icon">
+              <i data-detail-icon data-lucide="layout-grid" aria-hidden="true"></i>
+            </div>
+            <div>
+              <p class="eyebrow" data-detail-kicker>Kategori</p>
+              <h1 id="detail-title" data-detail-title>Kategori Detayı</h1>
+              <p class="hero-copy" data-detail-copy>
+                Bu kategoriye ait bilgiler burada gösterilir.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section detail-section">
+        <div class="detail-layout">
+          <article class="detail-content">
+            <span data-detail-type>Kategori</span>
+            <h2>Bilgiler</h2>
+            <p data-detail-summary>
+              Kategori özeti burada gösterilir.
+            </p>
+            <ul class="detail-list" data-detail-items></ul>
+            <div class="detail-actions" data-detail-action-links></div>
+            <a class="button primary" href="#" data-detail-action>
+              <i data-lucide="external-link" aria-hidden="true"></i>
+              <span data-detail-action-text>Devam Et</span>
+            </a>
+          </article>
+
+          <aside class="detail-info">
+            <span>Etiketler</span>
+            <div class="card-meta" data-detail-tags></div>
+            <p>
+              Bu alanı sunucunun kendi akışına göre başvuru linki, Discord kanalı
+              veya duyuru metniyle özelleştirebilirsin.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section related-section" aria-labelledby="related-title">
+        <div class="section-heading">
+          <p class="eyebrow">Diğer Kategoriler</p>
+          <h2 id="related-title">Benzer bölümlere hızlı geç.</h2>
+        </div>
+        <div class="category-grid" data-related-categories></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span data-footer-name>Nova Roleplay</span>
+      <a href="#" data-discord-link-footer>Discord'a Katıl</a>
+    </footer>
+  </body>
+</html>
