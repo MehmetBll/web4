@@ -96,6 +96,45 @@
         </div>
       </section>
 
+      <section class="section admin-section" data-admin-panel hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Admin</p>
+          <h2>Donate kartı ekle</h2>
+        </div>
+        <form class="admin-form" data-donate-admin-form>
+          <div class="admin-form-grid">
+            <label>
+              <span>Başlık</span>
+              <input name="card-title" type="text" placeholder="Super Car" required />
+            </label>
+            <label>
+              <span>Fotoğraf URL</span>
+              <input name="card-image" type="url" placeholder="https://..." />
+            </label>
+            <label>
+              <span>İkon</span>
+              <input name="card-icon" type="text" placeholder="car" />
+            </label>
+            <label>
+              <span>Renk</span>
+              <input name="card-accent" type="color" value="#ff5a66" />
+            </label>
+          </div>
+          <label>
+            <span>Açıklama</span>
+            <textarea name="card-text" rows="3" placeholder="Kart açıklaması" required></textarea>
+          </label>
+          <label>
+            <span>Etiketler (virgülle ayır)</span>
+            <input name="card-tags" type="text" placeholder="VIP, Premium" />
+          </label>
+          <div class="admin-form-actions">
+            <button class="button primary" type="submit">Kart Ekle</button>
+            <p class="admin-status" data-admin-status></p>
+          </div>
+        </form>
+      </section>
+
       <section class="section detail-section">
         <div class="detail-layout">
           <article class="detail-content">
@@ -109,6 +148,7 @@
               <h3>Alt Kategoriler</h3>
               <div class="detail-gallery" data-detail-gallery></div>
             </div>
+            <div class="detail-panel" data-detail-panel hidden></div>
             <div class="detail-actions" data-detail-action-links></div>
             <a class="button primary" href="#" data-detail-action>
               <i data-lucide="external-link" aria-hidden="true"></i>

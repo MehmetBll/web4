@@ -4,25 +4,27 @@
 // ve bölüm metinlerini bu nesneden değiştirebilirsin.
 // ================================================================
 const siteConfig = {
-  siteName: "Nova Roleplay", // BURAYI DEĞİŞTİR: Sunucu / site adı
-  siteShort: "N", // BURAYI DEĞİŞTİR: Logo kutusunda görünen kısa harf
-  discordUrl: "https://discord.gg/GdDaabaHZ", // BURAYI DEĞİŞTİR: Discord davet linki
-  donateUrl: "https://discord.gg/gVpPHPXHS", // BURAYI DEĞİŞTİR: DONATE Discord linki
+  // [DÜZENLE] Ana site bilgileri
+  siteName: "Nova Roleplay", // [DÜZENLE] Sunucu / site adı
+  siteShort: "N", // [DÜZENLE] Logo kutusunda görünen kısa harf
+  discordUrl: "https://discord.gg/GdDaabaHZ", // [DÜZENLE] Discord davet linki
+  donateUrl: "https://discord.gg/gVpPHPXHS", // [DÜZENLE] DONATE Discord linki
   applicationChannels: {
     lspd: "https://discord.com/channels/1439035577109446870/1477676061805510707",
     ems: "https://discord.com/channels/1439035577109446870/1450887591548293213",
     lsdoj: "https://discord.com/channels/1439035577109446870/1442879305586573343",
   },
   liveStatus: {
+    // [DÜZENLE] FiveM canlı durum için CFX kodu veya sunucu adresi
     // GitHub Pages icin Node.js gerekmez. Bu degerleri doldurman yeterli.
     // CFX kodu ornek: cfx.re/join/abc123 adresindeki "abc123".
-    fivemCfxCode: "",
+    fivemCfxCode: "", // [DÜZENLE] FiveM sunucu CFX kodu
     // CFX kodu yoksa sunucu endpointi yazabilirsin: "127.0.0.1:30120".
     // Not: Direkt IP endpointlerinde tarayici CORS engeli olabilir; CFX kodu daha sagliklidir.
-    fivemEndpoint: "",
-    fivemMaxPlayers: 128,
-    discordGuildId: "1439035577109446870",
-    // Aktif yetkili sayimi icin yetkili Discord kullanici ID'lerini buraya ekle.
+    fivemEndpoint: "", // [DÜZENLE] FiveM endpoint (varsa)
+    fivemMaxPlayers: 128, // [DÜZENLE] Sunucu maksimum slot sayısı
+    discordGuildId: "1439035577109446870", // [DÜZENLE] Discord sunucu ID
+    // [DÜZENLE] Aktif yetkili sayimi icin yetkili Discord kullanici ID'lerini buraya ekle.
     staffUserIds: [
       "680429618532188273",
       "319867578686111744",
@@ -33,18 +35,21 @@ const siteConfig = {
   },
 
   hero: {
-    kicker: "Non-Whitelist Roleplay Sunucusu",
-    title: "Nova Roleplay",
+    // [DÜZENLE] Ana sayfa başlık metinleri
+    kicker: "Non-Whitelist Roleplay Sunucusu", // [DÜZENLE] Üst başlık metni
+    title: "Nova Roleplay", // [DÜZENLE] Ana başlık
     copy:
-      "Hikâye odaklı ekonomi, meslek, illegal ve sosyal rol kategorileriyle dengeli bir RP deneyimi.",
+      "Hikâye odaklı ekonomi, meslek, illegal ve sosyal rol kategorileriyle dengeli bir RP deneyimi.", // [DÜZENLE] Hero açıklaması
   },
 
   server: {
-    status: "Aktif",
-    slot: "--",
-    platform: "FiveM",
+    // [DÜZENLE] Sunucu üst bilgi kutusu metinleri
+    status: "Aktif", // [DÜZENLE] Sunucu durumu
+    slot: "--", // [DÜZENLE] Slot veya oyuncu değeri
+    platform: "FiveM", // [DÜZENLE] Platform adı
   },
 
+  // [DÜZENLE] Ana sayfa üst istatistik kartları
   highlights: [
     {
       label: "Aktif Oyuncu",
@@ -68,7 +73,7 @@ const siteConfig = {
     },
   ],
 
-  // KATEGORİ ÖZELLEŞTİRME:
+  // [DÜZENLE] Kategori listesi ve detay sayfası içerikleri
   // slug alt sayfa linkidir: kategori.html?kategori=slug
   // details alanı kategori alt sayfasında gösterilir.
   categories: [
@@ -253,62 +258,215 @@ const siteConfig = {
           "Satın alma sonrası destek talebi oluştur",
           "Sunucu katkı seçeneklerini görüntüle",
         ],
+        // [DÜZENLE] Donate bölümündeki ana kartlar ve alt araç kartları
         subcategories: [
           {
             title: "Super Car",
+            image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80",
             text: "Lüks ve yüksek performanslı araç paketleriyle öne çıkan seçenekler.",
             icon: "car-front",
             accent: "#ff7b54",
             tags: ["VIP", "Premium"],
+            items: [
+              {
+                title: "Lamborghini Aventador",
+                image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80",
+                text: "Yüksek performans ve dikkat çekici tasarım.",
+                icon: "car-front",
+                accent: "#ff7b54",
+                tags: ["VIP"],
+              },
+              {
+                title: "Ferrari Roma",
+                image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80",
+                text: "Şık ve güçlü spor otomobil deneyimi.",
+                icon: "car",
+                accent: "#ff5a66",
+                tags: ["Spor"],
+              },
+            ],
           },
           {
             title: "Sport Car",
+            image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
             text: "Sürüş hissi odaklı spor modeller ve premium erişim paketleri.",
             icon: "car",
             accent: "#ff5a66",
             tags: ["Spor", "Hız"],
+            items: [
+              {
+                title: "BMW M4",
+                image: "https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=900&q=80",
+                text: "Sürüş stabilitesi ve agresif dinamikler.",
+                icon: "car",
+                accent: "#ff5a66",
+                tags: ["Spor"],
+              },
+              {
+                title: "Porsche 911",
+                image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80",
+                text: "Klasik spor otomobil hissi ve güçlü performans.",
+                icon: "car",
+                accent: "#4f8cff",
+                tags: ["Spor"],
+              },
+            ],
           },
           {
             title: "Offroad Car",
+            image: "https://images.unsplash.com/photo-1579097648137-4b19188fdb4e?q=80&w=1200&auto=format&fit=crop",
             text: "Arazi ve sert zemin deneyimi için dayanıklı araç seçenekleri.",
             icon: "truck",
             accent: "#8e6b3d",
             tags: ["Arazi", "Dayanıklı"],
+            items: [
+              {
+                title: "Jeep Wrangler",
+                image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=80",
+                text: "Zorlu arazilerde kontrol ve güven.",
+                icon: "truck",
+                accent: "#8e6b3d",
+                tags: ["Arazi"],
+              },
+              {
+                title: "Land Rover Defender",
+                image: "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80",
+                text: "Dayanıklı ve rahat arazi deneyimi.",
+                icon: "truck",
+                accent: "#6b7280",
+                tags: ["Offroad"],
+              },
+            ],
           },
           {
             title: "JDM Car",
+            image: "https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1200&q=80",
             text: "JDM kültürünü yansıtan ikonik ve özel araç paketleri.",
             icon: "car",
             accent: "#4f8cff",
             tags: ["JDM", "Koleksiyon"],
+            items: [
+              {
+                title: "Nissan Skyline",
+                image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=80",
+                text: "Klasik JDM hissi ve güçlü performans.",
+                icon: "car",
+                accent: "#4f8cff",
+                tags: ["JDM"],
+              },
+              {
+                title: "Toyota Supra",
+                image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80",
+                text: "Ikonik JDM motora sahip premium model.",
+                icon: "car",
+                accent: "#8b5cf6",
+                tags: ["JDM"],
+              },
+            ],
           },
           {
             title: "Donate Motor",
+            image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80",
             text: "Motor tutkunları için hızlı ve dikkat çekici paket seçenekleri.",
             icon: "bike",
             accent: "#ef8f3b",
             tags: ["Motor", "Hız"],
+            items: [
+              {
+                title: "Ducati Panigale",
+                image: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=900&q=80",
+                text: "Yüksek performanslı spor motor deneyimi.",
+                icon: "bike",
+                accent: "#ef8f3b",
+                tags: ["Motor"],
+              },
+              {
+                title: "Harley-Davidson",
+                image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80",
+                text: "Klasik ve güçlü uzun yol motoru.",
+                icon: "bike",
+                accent: "#ff2e4d",
+                tags: ["Motor"],
+              },
+            ],
           },
           {
             title: "Legal İşletme",
+            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
             text: "Yasal ve sürdürülebilir işletme modelleri için destek paketi.",
             icon: "building-2",
             accent: "#4ecdc4",
             tags: ["Legal", "İşletme"],
+            items: [
+              {
+                title: "İşletme Paketi",
+                image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
+                text: "Profesyonel işletme kurulum desteği.",
+                icon: "building-2",
+                accent: "#4ecdc4",
+                tags: ["Legal"],
+              },
+              {
+                title: "Ticaret Standı",
+                image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80",
+                text: "Gelişmiş satış ve gelir sistemi.",
+                icon: "store",
+                accent: "#10b981",
+                tags: ["İşletme"],
+              },
+            ],
           },
           {
             title: "İllegal Meslek",
+            image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
             text: "Risk ve gizlilik odaklı meslek paketleri için özel seçenekler.",
             icon: "briefcase-business",
             accent: "#8b5cf6",
             tags: ["İllegal", "Meslek"],
+            items: [
+              {
+                title: "Operasyon Paketi",
+                image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80",
+                text: "Özel operasyon ve gizlilik araçları.",
+                icon: "briefcase-business",
+                accent: "#8b5cf6",
+                tags: ["İllegal"],
+              },
+              {
+                title: "Meslek Ekipmanı",
+                image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80",
+                text: "İş birlikleri ve gizli operasyona destek.",
+                icon: "briefcase-business",
+                accent: "#6d28d9",
+                tags: ["Meslek"],
+              },
+            ],
           },
           {
             title: "Bağış Paketi",
+            image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
             text: "Temel destek ve bonus içerikleri barındıran başlangıç paketleri.",
             icon: "gift",
             accent: "#ff2e4d",
             tags: ["Paket", "Bonus"],
+            items: [
+              {
+                title: "Başlangıç Paketi",
+                image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80",
+                text: "Uygun fiyatlı destek ve bonus içerikleri.",
+                icon: "gift",
+                accent: "#ff2e4d",
+                tags: ["Paket"],
+              },
+              {
+                title: "Premium Bonus",
+                image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80",
+                text: "Üst seviye bonus ve erişim avantajları.",
+                icon: "gift",
+                accent: "#ef4444",
+                tags: ["Bonus"],
+              },
+            ],
           },
         ],
         actionText: "DONATE Discord'una Git",
@@ -317,12 +475,14 @@ const siteConfig = {
     },
   ],
 
+  // [DÜZENLE] Katılım bölümü metinleri
   application: {
     copy:
       "Sunucu non-whitelist olduğu için oyuna başlamak için Discord'a katılman, kuralları okuman ve bağlantı bilgilerini takip etmen yeterlidir. Departman başvuruları ilgili Discord kanallarından yapılır.",
     steps: ["Discord'a katıl", "Kuralları ve duyuruları oku", "Sunucu bağlantı bilgilerini takip et"],
   },
 
+  // [DÜZENLE] Kurallar bölümünün kart içerikleri
   rules: [
     {
       label: "Rol Kalitesi",
@@ -346,6 +506,7 @@ const siteConfig = {
     },
   ],
 
+  // [DÜZENLE] Ekip bölümündeki kişi kartları
   team: [
     { name: "Kurucu Adı", role: "Kurucu", note: "Genel yönetim ve vizyon" },
     { name: "Admin Adı", role: "Head Admin", note: "Yetkili koordinasyonu" },
@@ -356,6 +517,8 @@ const siteConfig = {
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
+const ADMIN_SECRET = "nova2026"; // [DÜZENLE] Donate kart ekleme için gizli admin anahtarı
+const DONATE_STORAGE_KEY = "nova-donate-subcategories"; // [DÜZENLE] Kaydedilen donate kartlarının localStorage anahtarı
 
 function setText(selector, value) {
   const element = $(selector);
@@ -370,6 +533,29 @@ function setLink(selector, url) {
 function getConfigUrl(keyOrUrl) {
   if (!keyOrUrl) return "#";
   return keyOrUrl.split(".").reduce((value, key) => value?.[key], siteConfig) || keyOrUrl;
+}
+
+function getStoredDonateSubcategories(defaultItems = []) {
+  try {
+    const stored = window.localStorage.getItem(DONATE_STORAGE_KEY);
+    if (!stored) return defaultItems;
+    const parsed = JSON.parse(stored);
+    return Array.isArray(parsed) ? parsed : defaultItems;
+  } catch {
+    return defaultItems;
+  }
+}
+
+function saveStoredDonateSubcategories(items) {
+  try {
+    window.localStorage.setItem(DONATE_STORAGE_KEY, JSON.stringify(items));
+  } catch {
+    // localStorage kullanılamıyorsa sessizce devam et
+  }
+}
+
+function isAdminMode() {
+  return new URLSearchParams(window.location.search).get("admin") === ADMIN_SECRET;
 }
 
 function categoryUrl(item) {
@@ -647,7 +833,10 @@ function renderCategoryDetail() {
   const slug = params.get("kategori") || siteConfig.categories[0].slug;
   const category =
     siteConfig.categories.find((item) => item.slug === slug) || siteConfig.categories[0];
-  const details = category.details;
+  const details = {
+    ...category.details,
+    subcategories: getStoredDonateSubcategories(category.details.subcategories || []),
+  };
 
   document.title = `${details.title} | ${siteConfig.siteName}`;
   setText("[data-detail-kicker]", category.type);
@@ -684,22 +873,70 @@ function renderCategoryDetail() {
 
   const galleryBlock = $("[data-detail-gallery-block]");
   const galleryContainer = $("[data-detail-gallery]");
+  const detailPanel = $("[data-detail-panel]");
   if (galleryBlock && galleryContainer) {
     const subcategories = details.subcategories || [];
     galleryContainer.innerHTML = subcategories
-      .map(
-        (item) => `
-          <article class="detail-gallery-card" style="--card-accent: ${item.accent || "var(--accent)"};">
-            <div class="card-icon"><i data-lucide="${item.icon || "sparkles"}" aria-hidden="true"></i></div>
+      .map((item, index) => `
+        <button class="detail-gallery-card detail-gallery-card--parent" type="button" style="--card-accent: ${item.accent || "var(--accent)"};" data-gallery-toggle="${index}" aria-expanded="false">
+          ${item.image ? `<img class="detail-gallery-image detail-gallery-image--parent" src="${item.image}" alt="${item.title}" loading="lazy" />` : `<div class="card-icon"><i data-lucide="${item.icon || "sparkles"}" aria-hidden="true"></i></div>`}
+          <div class="detail-gallery-body">
             <h3>${item.title}</h3>
             <p>${item.text}</p>
             <div class="card-meta">
               ${(item.tags || []).map((tag) => `<span class="badge">${tag}</span>`).join("")}
             </div>
-          </article>
-        `,
-      )
+          </div>
+          <div class="detail-gallery-footer">
+            <span class="detail-gallery-pill">${(item.items || []).length} araç</span>
+            <span class="detail-gallery-pill detail-gallery-pill--muted">Detaya git</span>
+          </div>
+        </button>
+      `)
       .join("");
+
+    galleryContainer.querySelectorAll("[data-gallery-toggle]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetIndex = Number(button.getAttribute("data-gallery-toggle"));
+        const selectedItem = subcategories[targetIndex];
+        if (!selectedItem || !detailPanel) return;
+
+        detailPanel.hidden = false;
+        detailPanel.innerHTML = `
+          <div class="detail-panel-header">
+            <div class="detail-panel-title">
+              <h3>${selectedItem.title}</h3>
+              <p>${selectedItem.text}</p>
+            </div>
+            <button class="detail-panel-close" type="button" data-panel-close>Kapat</button>
+          </div>
+          <div class="detail-panel-grid">
+            ${(selectedItem.items || [])
+              .map(
+                (child) => `
+                  <article class="detail-panel-card">
+                    ${child.image ? `<img src="${child.image}" alt="${child.title}" loading="lazy" />` : ""}
+                    <h4>${child.title}</h4>
+                    <p>${child.text}</p>
+                    <div class="card-meta">
+                      ${(child.tags || []).map((tag) => `<span class="badge">${tag}</span>`).join("")}
+                    </div>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+        `;
+
+        const closeButton = detailPanel.querySelector("[data-panel-close]");
+        if (closeButton) {
+          closeButton.addEventListener("click", () => {
+            detailPanel.hidden = true;
+            detailPanel.innerHTML = "";
+          });
+        }
+      });
+    });
 
     galleryBlock.hidden = !subcategories.length;
   }
@@ -720,6 +957,11 @@ function renderCategoryDetail() {
     actionLinksContainer.hidden = !details.actionLinks?.length;
   }
 
+  const adminPanel = $("[data-admin-panel]");
+  if (adminPanel) {
+    adminPanel.hidden = !(category.slug === "donate" && isAdminMode());
+  }
+
   const relatedContainer = $("[data-related-categories]");
   if (relatedContainer) {
     relatedContainer.innerHTML = siteConfig.categories
@@ -728,6 +970,44 @@ function renderCategoryDetail() {
       .map(categoryTemplate)
       .join("");
   }
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function bindDonateAdminForm() {
+  const form = $("[data-donate-admin-form]");
+  const status = $("[data-admin-status]");
+  if (!form || form.dataset.bound === "true") return;
+
+  form.dataset.bound = "true";
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const title = form.querySelector("[name='card-title']").value.trim();
+    const image = form.querySelector("[name='card-image']").value.trim();
+    const text = form.querySelector("[name='card-text']").value.trim();
+    const icon = form.querySelector("[name='card-icon']").value.trim() || "sparkles";
+    const accent = form.querySelector("[name='card-accent']").value || "#ff5a66";
+    const tags = form.querySelector("[name='card-tags']")
+      .value.split(",")
+      .map((tag) => tag.trim())
+      .filter(Boolean);
+
+    if (!title || !text) {
+      if (status) status.textContent = "Başlık ve açıklama zorunludur.";
+      return;
+    }
+
+    const newCard = { title, image, text, icon, accent, tags };
+    const currentCards = getStoredDonateSubcategories(siteConfig.categories.find((item) => item.slug === "donate")?.details?.subcategories || []);
+    currentCards.push(newCard);
+    saveStoredDonateSubcategories(currentCards);
+    form.reset();
+    form.querySelector("[name='card-accent']").value = "#ff5a66";
+
+    if (status) status.textContent = "Kart eklendi. Sayfa yenilendiğinde görünecek.";
+    renderCategoryDetail();
+  });
 }
 
 function hydrateStaticContent() {
@@ -780,6 +1060,7 @@ window.addEventListener("DOMContentLoaded", () => {
   renderRules();
   renderTeam();
   renderCategoryDetail();
+  bindDonateAdminForm();
   loadLiveStatus();
   window.setInterval(loadLiveStatus, 60000);
   bindNavigation();
