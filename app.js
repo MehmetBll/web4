@@ -253,6 +253,64 @@ const siteConfig = {
           "Satın alma sonrası destek talebi oluştur",
           "Sunucu katkı seçeneklerini görüntüle",
         ],
+        subcategories: [
+          {
+            title: "Super Car",
+            text: "Lüks ve yüksek performanslı araç paketleriyle öne çıkan seçenekler.",
+            icon: "car-front",
+            accent: "#ff7b54",
+            tags: ["VIP", "Premium"],
+          },
+          {
+            title: "Sport Car",
+            text: "Sürüş hissi odaklı spor modeller ve premium erişim paketleri.",
+            icon: "car",
+            accent: "#ff5a66",
+            tags: ["Spor", "Hız"],
+          },
+          {
+            title: "Offroad Car",
+            text: "Arazi ve sert zemin deneyimi için dayanıklı araç seçenekleri.",
+            icon: "truck",
+            accent: "#8e6b3d",
+            tags: ["Arazi", "Dayanıklı"],
+          },
+          {
+            title: "JDM Car",
+            text: "JDM kültürünü yansıtan ikonik ve özel araç paketleri.",
+            icon: "car",
+            accent: "#4f8cff",
+            tags: ["JDM", "Koleksiyon"],
+          },
+          {
+            title: "Donate Motor",
+            text: "Motor tutkunları için hızlı ve dikkat çekici paket seçenekleri.",
+            icon: "bike",
+            accent: "#ef8f3b",
+            tags: ["Motor", "Hız"],
+          },
+          {
+            title: "Legal İşletme",
+            text: "Yasal ve sürdürülebilir işletme modelleri için destek paketi.",
+            icon: "building-2",
+            accent: "#4ecdc4",
+            tags: ["Legal", "İşletme"],
+          },
+          {
+            title: "İllegal Meslek",
+            text: "Risk ve gizlilik odaklı meslek paketleri için özel seçenekler.",
+            icon: "briefcase-business",
+            accent: "#8b5cf6",
+            tags: ["İllegal", "Meslek"],
+          },
+          {
+            title: "Bağış Paketi",
+            text: "Temel destek ve bonus içerikleri barındıran başlangıç paketleri.",
+            icon: "gift",
+            accent: "#ff2e4d",
+            tags: ["Paket", "Bonus"],
+          },
+        ],
         actionText: "DONATE Discord'una Git",
         actionUrl: "donateUrl",
       },
@@ -622,6 +680,28 @@ function renderCategoryDetail() {
         `,
       )
       .join("");
+  }
+
+  const galleryBlock = $("[data-detail-gallery-block]");
+  const galleryContainer = $("[data-detail-gallery]");
+  if (galleryBlock && galleryContainer) {
+    const subcategories = details.subcategories || [];
+    galleryContainer.innerHTML = subcategories
+      .map(
+        (item) => `
+          <article class="detail-gallery-card" style="--card-accent: ${item.accent || "var(--accent)"};">
+            <div class="card-icon"><i data-lucide="${item.icon || "sparkles"}" aria-hidden="true"></i></div>
+            <h3>${item.title}</h3>
+            <p>${item.text}</p>
+            <div class="card-meta">
+              ${(item.tags || []).map((tag) => `<span class="badge">${tag}</span>`).join("")}
+            </div>
+          </article>
+        `,
+      )
+      .join("");
+
+    galleryBlock.hidden = !subcategories.length;
   }
 
   const actionLinksContainer = $("[data-detail-action-links]");
