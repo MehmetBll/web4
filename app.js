@@ -23,7 +23,13 @@ const siteConfig = {
     fivemMaxPlayers: 128,
     discordGuildId: "1439035577109446870",
     // Aktif yetkili sayimi icin yetkili Discord kullanici ID'lerini buraya ekle.
-    staffUserIds: [],
+    staffUserIds: [
+      "680429618532188273",
+      "319867578686111744",
+      "689766089567109158",
+      
+
+    ],
   },
 
   hero: {
